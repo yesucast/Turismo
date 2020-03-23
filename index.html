@@ -20,21 +20,46 @@
         
         <label for="fecha" class="formulario__label">Indica la fecha de tu reserva</label>
         <input id="fecha" type="date" class="formulario__input" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+
+<!--    <label for="fecha" class="formulario__label">Mes de Preferencia</label>
+        <select id="fecha" name="listameses" class="formulario__input">
+            <option value="Enero">Enero</option>
+            <option value="Febrero">Febrero</option>
+            <option value="Marzo">Marzo</option>
+            <option value="Abril">Abril</option>
+            <option value="Mayo">Mayo</option>
+            <option value="Junio">Junio</option>
+            <option value="Julio">Julio</option>
+            <option value="Agosto">Agosto</option>
+            <option value="Septiembre">Domingo</option>
+            <option value="Octubre">Octubre</option>
+            <option value="Noviembre">Noviembre</option>
+            <option value="Diciembre">Diciembre</option>
+        </select> -->
         
-        
-        <label for="hora" class="formulario__label">Indica la hora de tu reserva</label>
-        <input id="hora" type="time" class="formulario__input" min="07:00" max="21:00" step="3600" required>
         
         <label for="dia" class="formulario__label">Día de preferencia</label>
-        <select id="dia" name="listabarberos" class="formulario__input">
+        <select id="dia" name="listadias" class="formulario__input">
             <option value="Viernes">Viernes</option>
             <option value="Sábado">Sábado</option>
             <option value="Domingo">Domingo</option>
         </select>
         
+<!-- <label for="hora" class="formulario__label">Indica la hora de tu reserva</label> -->
+<!-- <input id="hora" type="time" class="formulario__input" min="07:00" max="21:00" step="3600" required> -->
+        
+        
+        <label for="destino" class="formulario__label">¿Que destino que deseas visitar?</label>
+        <select id="destino" name="listadestinos" class="formulario__input">
+ <!--       <option>Lima</option> -->
+            <option>Callao</option>
+ <!--       <option>Otros</option> -->
+        </select>
+        
+        
         <label for="servicio" class="formulario__label">¿Cuál es el tour que desea realizar?</label>
         <select id="servicio" name="listaservicios" class="formulario__input">
-            <option>Yatch Tour + Callao Monumental</option>
+            <option>Yatch Tour & Callao Monumental</option>
             <option>City tour Callao Premium</option>
             <option>City tour Callao Classic</option>
         </select>
