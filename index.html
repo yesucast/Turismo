@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 
-<html lang="es">
+<html>
 	<head>
 		<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reservas Peruvian Crossings</title>
     <link rel="stylesheet" href="css/estilos.css">
-	</head>
+	<link rel="shortcut icon" href="images/favicon.ico">
+</head>
 	<body>
         <form class="formulario" name="formulario1" action="#">
-		<h1 class="formulario__titulo">Peruvian Crossings</h1>
-       <h3 class="formulario__subtitulo">Reservas</h3>
-       <p class="formulario__parrafo">Llena este pequeño formulario para reservar tu próximo viaje</p>
+		<!--<h1 class="formulario__titulo">Peruvian Crossings</h1>-->
+		<div  align="center" href="index.html">
+			<img src="images/LogoFinalWeb.png"
+			width="300" height="150" align='center'
+			alt="texto alternativo de la imagen" />
+		</div>
+		<h3></h3>
+		<h3 class="formulario__subtitulo">Reservas</h3>
+		<p class="formulario__parrafo">Llena este pequeño formulario para reservar tu próximo viaje</p>
        
         <label for="nombre" class="formulario__label">¿Cuál es tu nombre?</label>
         <input id="cliente" type="text" class="formulario__input" required>
         
-        
         <label for="fecha" class="formulario__label">Indica la fecha de tu reserva</label>
-        <input id="fecha" type="date" class="formulario__input" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+        <input id="fecha" type="date" min="<?php echo date('Y-m-d')?>" class="formulario__input" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
         
-        <label for="dia" class="formulario__label">Día de preferencia</label>
+        <label for="dia" class="formulario__label">Indica el día de preferencia</label>
         <select id="dia" name="listadia" class="formulario__input">
             <option value="Viernes">Viernes</option>
             <option value="Sábado">Sábado</option>
             <option value="Domingo">Domingo</option>
         </select>
         
-        <label for="destino" class="formulario__label">¿Que destino que deseas visitar?</label>
+        <label for="destino" class="formulario__label">¿Qué destino deseas visitar?</label>
         	<select id="destino" class="formulario__input" name="cosa" onchange="cambia()">
-				<option value="0">Seleccione
+				<option value="0">Seleccione Destino
 				<option value="1">Amazonas
                 <option value="2">Áncash
                 <option value="3">Apurímac
@@ -60,39 +66,39 @@
 			
             <label for="servicio" class="formulario__label">¿Cuál es el tour que desea realizar?</label>
 			<select id="servicio" class="formulario__input" name="opt">
-				<option value="-">Seleccione
+				<option value="-">Seleccione Destino
 			</select>       
 
        <button id="submit" class="formulario__submit">Enviar a WhatsApp</button>
        <!--  https://api.whatsapp.com/send?phone=51931512715&text=*_Peruvian%20Crossings_*%20%0AReservas%0A%0A*%C2%BFCuál%20es%20tu%20nombre?*%0A"Nombres"%20%0A*Barbero%20de%20preferencia*%0A"Barbero"%20%0A -->
     </form>
     <script type="text/javascript">
-			//1) Definir Las Variables Correspondintes
-			var opt_1 = new Array ("-", "Yatch Tour + Amazonas Monumental", "City tour Amazonas Premium", "City tour Amazonas Classic", "...");
-            var opt_2 = new Array ("-", "Yatch Tour + Áncash Monumental", "City tour Áncash Premium", "City tour Áncash Classic", "...");
-            var opt_3 = new Array ("-", "Yatch Tour + Apurímac Monumental", "City tour Apurímac Premium", "City tour Apurímac Classic", "...");
-            var opt_4 = new Array ("-", "Yatch Tour + Arequipa Monumental", "City tour Arequipa Premium", "City tour Arequipa Classic", "...");
-            var opt_5 = new Array ("-", "Yatch Tour + Ayacucho Monumental", "City tour Ayacucho Premium", "City tour Ayacucho Classic", "...");
-            var opt_6 = new Array ("-", "Yatch Tour + Cajamarca Monumental", "City tour Cajamarca Premium", "City tour Cajamarca Classic", "...");
-            var opt_7 = new Array ("-", "Yatch Tour + Callao Monumental", "City tour Callao Premium", "City tour Callao Classic", "...");
-            var opt_8 = new Array ("-", "Yatch Tour + Cusco Monumental", "City tour Cusco Premium", "City tour Cusco Classic", "...");
-            var opt_9 = new Array ("-", "Yatch Tour + Huancavelica Monumental", "City tour Huancavelica Premium", "City tour Huancavelica Classic", "...");
-            var opt_10 = new Array ("-", "Yatch Tour + Huánuco Monumental", "City tour Huánuco Premium", "City tour Huánuco Classic", "...");
-            var opt_11 = new Array ("-", "Yatch Tour + Ica Monumental", "City tour Ica Premium", "City tour Ica Classic", "...");
-            var opt_12 = new Array ("-", "Yatch Tour + Junín Monumental", "City tour Junín Premium", "City tour Junín Classic", "...");
-            var opt_13 = new Array ("-", "Yatch Tour + La Libertad Monumental", "City tour La Libertad Premium", "City tour La Libertad Classic", "...");
-            var opt_14 = new Array ("-", "Yatch Tour + Lambayeque Monumental", "City tour Lambayeque Premium", "City tour Lambayeque Classic", "...");
-            var opt_15 = new Array ("-", "Yatch Tour + Lima Monumental", "City tour Lima Premium", "City tour Lima Classic", "...");
-            var opt_16 = new Array ("-", "Yatch Tour + Loreto Monumental", "City tour Loreto Premium", "City tour Loreto Classic", "...");
-            var opt_17 = new Array ("-", "Yatch Tour + Madre de Dios Monumental", "City tour Madre de Dios Premium", "City tour Madre de Dios Classic", "...");
-            var opt_18 = new Array ("-", "Yatch Tour + Moquegua Monumental", "City tour Moquegua Premium", "City tour Moquegua Classic", "...");
-            var opt_19 = new Array ("-", "Yatch Tour + Pasco Monumental", "City tour Pasco Premium", "City tour Pasco Classic", "...");
-            var opt_20 = new Array ("-", "Yatch Tour + Piura Monumental", "City tour Piura Premium", "City tour Piura Classic", "...");
-            var opt_21 = new Array ("-", "Yatch Tour + Puno Monumental", "City tour Puno Premium", "City tour Puno Classic", "...");
-            var opt_22 = new Array ("-", "Yatch Tour + San Martín Monumental", "City tour San Martín Premium", "City tour San Martín Classic", "...");
-            var opt_23 = new Array ("-", "Yatch Tour + Tacna Monumental", "City tour Tacna Premium", "City tour Tacna Classic", "...");
-            var opt_24 = new Array ("-", "Yatch Tour + Tumbes Monumental", "City tour Tumbes Premium", "City tour Tumbes Classic", "...");
-            var opt_25 = new Array ("-", "Yatch Tour + Ucayali Monumental", "City tour Ucayali Premium", "City tour Ucayali Classic", "...");
+			//1) Definir Las Variables Correspondientes
+			var opt_1 = new Array ("Seleccione Tour", "Yatch Tour + Amazonas Monumental", "City tour Amazonas Premium", "City tour Amazonas Classic", "...");
+            var opt_2 = new Array ("Seleccione Tour", "Yatch Tour + Áncash Monumental", "City tour Áncash Premium", "City tour Áncash Classic", "...");
+            var opt_3 = new Array ("Seleccione Tour", "Yatch Tour + Apurímac Monumental", "City tour Apurímac Premium", "City tour Apurímac Classic", "...");
+            var opt_4 = new Array ("Seleccione Tour", "Yatch Tour + Arequipa Monumental", "City tour Arequipa Premium", "City tour Arequipa Classic", "...");
+            var opt_5 = new Array ("Seleccione Tour", "Yatch Tour + Ayacucho Monumental", "City tour Ayacucho Premium", "City tour Ayacucho Classic", "...");
+            var opt_6 = new Array ("Seleccione Tour", "Yatch Tour + Cajamarca Monumental", "City tour Cajamarca Premium", "City tour Cajamarca Classic", "...");
+            var opt_7 = new Array ("Seleccione Tour", "Yatch Tour + Callao Monumental", "City tour Callao Premium", "City tour Callao Classic", "...");
+            var opt_8 = new Array ("Seleccione Tour", "Yatch Tour + Cusco Monumental", "City tour Cusco Premium", "City tour Cusco Classic", "...");
+            var opt_9 = new Array ("Seleccione Tour", "Yatch Tour + Huancavelica Monumental", "City tour Huancavelica Premium", "City tour Huancavelica Classic", "...");
+            var opt_10 = new Array ("Seleccione Tour", "Yatch Tour + Huánuco Monumental", "City tour Huánuco Premium", "City tour Huánuco Classic", "...");
+            var opt_11 = new Array ("Seleccione Tour", "Yatch Tour + Ica Monumental", "City tour Ica Premium", "City tour Ica Classic", "...");
+            var opt_12 = new Array ("Seleccione Tour", "Yatch Tour + Junín Monumental", "City tour Junín Premium", "City tour Junín Classic", "...");
+            var opt_13 = new Array ("Seleccione Tour", "Yatch Tour + La Libertad Monumental", "City tour La Libertad Premium", "City tour La Libertad Classic", "...");
+            var opt_14 = new Array ("Seleccione Tour", "Yatch Tour + Lambayeque Monumental", "City tour Lambayeque Premium", "City tour Lambayeque Classic", "...");
+            var opt_15 = new Array ("Seleccione Tour", "Yatch Tour + Lima Monumental", "City tour Lima Premium", "City tour Lima Classic", "...");
+            var opt_16 = new Array ("Seleccione Tour", "Yatch Tour + Loreto Monumental", "City tour Loreto Premium", "City tour Loreto Classic", "...");
+            var opt_17 = new Array ("Seleccione Tour", "Yatch Tour + Madre de Dios Monumental", "City tour Madre de Dios Premium", "City tour Madre de Dios Classic", "...");
+            var opt_18 = new Array ("Seleccione Tour", "Yatch Tour + Moquegua Monumental", "City tour Moquegua Premium", "City tour Moquegua Classic", "...");
+            var opt_19 = new Array ("Seleccione Tour", "Yatch Tour + Pasco Monumental", "City tour Pasco Premium", "City tour Pasco Classic", "...");
+            var opt_20 = new Array ("Seleccione Tour", "Yatch Tour + Piura Monumental", "City tour Piura Premium", "City tour Piura Classic", "...");
+            var opt_21 = new Array ("Seleccione Tour", "Yatch Tour + Puno Monumental", "City tour Puno Premium", "City tour Puno Classic", "...");
+            var opt_22 = new Array ("Seleccione Tour", "Yatch Tour + San Martín Monumental", "City tour San Martín Premium", "City tour San Martín Classic", "...");
+            var opt_23 = new Array ("Seleccione Tour", "Yatch Tour + Tacna Monumental", "City tour Tacna Premium", "City tour Tacna Classic", "...");
+            var opt_24 = new Array ("Seleccione Tour", "Yatch Tour + Tumbes Monumental", "City tour Tumbes Premium", "City tour Tumbes Classic", "...");
+            var opt_25 = new Array ("Seleccione Tour", "Yatch Tour + Ucayali Monumental", "City tour Ucayali Premium", "City tour Ucayali Classic", "...");
 
 			// 2) crear una funcion que permita ejecutar el cambio dinamico
 			function cambia(){
