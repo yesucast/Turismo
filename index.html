@@ -1,16 +1,16 @@
 <!DOCTYPE html>
+
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
+	<head>
+		<title>Select Dinamico</title>
+		<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Reservas Peruvian Crossings</title>
     <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-    <form action="" class="formulario">
-       
-       <h1 class="formulario__titulo">Peruvian Crossings</h1>
+	</head>
+	<body>
+		<h1 class="formulario__titulo">Peruvian Crossings</h1>
        <h3 class="formulario__subtitulo">Reservas</h3>
        <p class="formulario__parrafo">Llena este pequeño formulario para reservar tu próximo viaje</p>
        
@@ -20,48 +20,114 @@
         
         <label for="fecha" class="formulario__label">Indica la fecha de tu reserva</label>
         <input id="fecha" type="date" class="formulario__input" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
-
-<!--    <label for="fecha" class="formulario__label">Mes de Preferencia</label>
-        <select id="fecha" name="listameses" class="formulario__input">
-            <option value="Enero">Enero</option>
-            <option value="Febrero">Febrero</option>
-            <option value="Marzo">Marzo</option>
-            <option value="Abril">Abril</option>
-            <option value="Mayo">Mayo</option>
-            <option value="Junio">Junio</option>
-            <option value="Julio">Julio</option>
-            <option value="Agosto">Agosto</option>
-            <option value="Septiembre">Domingo</option>
-            <option value="Octubre">Octubre</option>
-            <option value="Noviembre">Noviembre</option>
-            <option value="Diciembre">Diciembre</option>
-        </select> -->
-        
         
         <label for="dia" class="formulario__label">Día de preferencia</label>
-        <select id="dia" name="listadias" class="formulario__input">
+        <select id="dia" name="listabarberos" class="formulario__input">
             <option value="Viernes">Viernes</option>
             <option value="Sábado">Sábado</option>
             <option value="Domingo">Domingo</option>
         </select>
         
-<!-- <label for="hora" class="formulario__label">Indica la hora de tu reserva</label> -->
-<!-- <input id="hora" type="time" class="formulario__input" min="07:00" max="21:00" step="3600" required> -->
-        
-        
         <label for="destino" class="formulario__label">¿Que destino que deseas visitar?</label>
-        <select id="destino" name="listadestinos" class="formulario__input">
- <!--       <option>Lima</option> -->
-            <option>Callao</option>
- <!--       <option>Otros</option> -->
-        </select>
-        
-        
-        <label for="servicio" class="formulario__label">¿Cuál es el tour que desea realizar?</label>
-        <select id="servicio" name="listaservicios" class="formulario__input">
-            <option>Yatch Tour & Callao Monumental</option>
-            <option>City tour Callao Premium</option>
-            <option>City tour Callao Classic</option>
+        <form name="formulario1" action="#">
+			<select id="destino" class="seleccion" name="cosa" onchange="cambia()">
+				<option value="0">Seleccione
+				<option value="1">Amazonas
+                <option value="2">Áncash
+                <option value="3">Apurímac
+                <option value="4">Arequipa
+                <option value="5">Ayacucho
+                <option value="6">Cajamarca
+                <option value="7">Callao
+                <option value="8">Cuzco
+                <option value="9">Huancavelica
+                <option value="10">Huánuco
+                <option value="11">Ica
+                <option value="12">Junín
+                <option value="13">La Libertad
+                <option value="14">Lambayeque
+                <option value="15">Lima
+                <option value="16">Loreto
+                <option value="17">Madre de Dios
+                <option value="18">Moquegua
+                <option value="19">Pasco
+                <option value="20">Piura
+                <option value="21">Puno
+                <option value="22">San Martín
+                <option value="23">Tacna
+                <option value="24">Tumbes
+                <option value="25">Ucayali
+			</select>
+			
+            <label for="servicio" class="formulario__label">¿Cuál es el tour que desea realizar?</label>
+			<select id="servicio" class="seleccion" name="opt">
+				<option value="-">-
+			</select>
+			
+		</form>
+		
+		<script type="text/javascript">
+			//1) Definir Las Variables Correspondintes
+			var opt_1 = new Array ("-", "Yatch Tour + Amazonas Monumental", "City tour Amazonas Premium", "City tour Amazonas Classic", "...");
+            var opt_2 = new Array ("-", "Yatch Tour + Áncash Monumental", "City tour Áncash Premium", "City tour Áncash Classic", "...");
+            var opt_3 = new Array ("-", "Yatch Tour + Apurímac Monumental", "City tour Apurímac Premium", "City tour Apurímac Classic", "...");
+            var opt_4 = new Array ("-", "Yatch Tour + Arequipa Monumental", "City tour Arequipa Premium", "City tour Arequipa Classic", "...");
+            var opt_5 = new Array ("-", "Yatch Tour + Ayacucho Monumental", "City tour Ayacucho Premium", "City tour Ayacucho Classic", "...");
+            var opt_6 = new Array ("-", "Yatch Tour + Cajamarca Monumental", "City tour Cajamarca Premium", "City tour Cajamarca Classic", "...");
+            var opt_7 = new Array ("-", "Yatch Tour + Callao Monumental", "City tour Callao Premium", "City tour Callao Classic", "...");
+            var opt_8 = new Array ("-", "Yatch Tour + Cuzco Monumental", "City tour Cuzco Premium", "City tour Cuzco Classic", "...");
+            var opt_9 = new Array ("-", "Yatch Tour + Huancavelica Monumental", "City tour Huancavelica Premium", "City tour Huancavelica Classic", "...");
+            var opt_10 = new Array ("-", "Yatch Tour + Huánuco Monumental", "City tour Huánuco Premium", "City tour Huánuco Classic", "...");
+            var opt_11 = new Array ("-", "Yatch Tour + Ica Monumental", "City tour Ica Premium", "City tour Ica Classic", "...");
+            var opt_12 = new Array ("-", "Yatch Tour + Junín Monumental", "City tour Junín Premium", "City tour Junín Classic", "...");
+            var opt_13 = new Array ("-", "Yatch Tour + La Libertad Monumental", "City tour La Libertad Premium", "City tour La Libertad Classic", "...");
+            var opt_14 = new Array ("-", "Yatch Tour + Lambayeque Monumental", "City tour Lambayeque Premium", "City tour Lambayeque Classic", "...");
+            var opt_15 = new Array ("-", "Yatch Tour + Lima Monumental", "City tour Lima Premium", "City tour Lima Classic", "...");
+            var opt_16 = new Array ("-", "Yatch Tour + Loreto Monumental", "City tour Loreto Premium", "City tour Loreto Classic", "...");
+            var opt_17 = new Array ("-", "Yatch Tour + Madre de Dios Monumental", "City tour Madre de Dios Premium", "City tour Madre de Dios Classic", "...");
+            var opt_18 = new Array ("-", "Yatch Tour + Moquegua Monumental", "City tour Moquegua Premium", "City tour Moquegua Classic", "...");
+            var opt_19 = new Array ("-", "Yatch Tour + Pasco Monumental", "City tour Pasco Premium", "City tour Pasco Classic", "...");
+            var opt_20 = new Array ("-", "Yatch Tour + Piura Monumental", "City tour Piura Premium", "City tour Piura Classic", "...");
+            var opt_21 = new Array ("-", "Yatch Tour + Puno Monumental", "City tour Puno Premium", "City tour Puno Classic", "...");
+            var opt_22 = new Array ("-", "Yatch Tour + San Martín Monumental", "City tour San Martín Premium", "City tour San Martín Classic", "...");
+            var opt_23 = new Array ("-", "Yatch Tour + Tacna Monumental", "City tour Tacna Premium", "City tour Tacna Classic", "...");
+            var opt_24 = new Array ("-", "Yatch Tour + Tumbes Monumental", "City tour Tumbes Premium", "City tour Tumbes Classic", "...");
+            var opt_25 = new Array ("-", "Yatch Tour + Ucayali Monumental", "City tour Ucayali Premium", "City tour Ucayali Classic", "...");
+
+			// 2) crear una funcion que permita ejecutar el cambio dinamico
+			
+			function cambia(){
+				var cosa;
+				//Se toma el vamor de la "cosa seleccionada"
+				cosa = document.formulario1.cosa[document.formulario1.cosa.selectedIndex].value;
+				//se chequea si la "cosa" esta definida
+				if(cosa!=0){
+					//selecionamos las cosas Correctas
+					mis_opts=eval("opt_" + cosa);
+					//se calcula el numero de cosas
+					num_opts=mis_opts.length;
+					//marco el numero de opt en el select
+					document.formulario1.opt.length = num_opts;
+					//para cada opt del array, la pongo en el select
+					for(i=0; i<num_opts; i++){
+						document.formulario1.opt.options[i].value=mis_opts[i];
+						document.formulario1.opt.options[i].text=mis_opts[i];
+					}
+					}else{
+						//si no habia ninguna opt seleccionada, elimino las cosas del select
+						document.formulario1.opt.length = 1;
+						//ponemos un guion en la unica opt que he dejado
+						document.formulario1.opt.options[0].value="-";
+						document.formulario1.opt.options[0].text="-";
+					}
+					//hacer un reset de las opts
+					document.formulario1.opt.options[0].selected = true;
+					
+				}
+			
+			
+		
+		</script>
         </select>
         
 
@@ -69,5 +135,6 @@
        <!-- https://api.whatsapp.com/send?phone=51931512715&text=*_Peruvian%20Crossings_*%20%0AReservas%0A%0A*%C2%BFCuál%20es%20tu%20nombre?*%0A"Nombres"%20%0A*Barbero%20de%20preferencia*%0A"Barbero"%20%0A -->
     </form>
     <script src="js/form.js"></script>
-</body>
+	</body>
+
 </html>
